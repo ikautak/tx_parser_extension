@@ -1,0 +1,47 @@
+{
+    "name": "tx-parser",
+    "displayName": "TX Parser",
+    "description": "Paste a raw Ethereum transaction (0x...) and inspect its parsed contents (nonce, from, value, ...)",
+    "version": "0.0.1",
+    "publisher": "oshio",
+    "license": "MIT",
+    "private": true,
+    "type": "module",
+    "engines": {
+        "vscode": "^1.140.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "txParser.open",
+                "title": "TX Parser: Open"
+            }
+        ]
+    },
+    "scripts": {
+        "build": "node esbuild.js",
+        "watch": "node esbuild.js --watch",
+        "format": "biome format --write .",
+        "lint": "biome check .",
+        "lint:fix": "biome check --write .",
+        "check": "tsc --noEmit",
+        "package": "node esbuild.js && vsce package --no-dependencies"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.15",
+        "@types/node": "^24.0.0",
+        "@types/vscode": "^1.140.0",
+        "@vscode/vsce": "^4.0.0",
+        "esbuild": "^0.28.2",
+        "typescript": "^7.0.2",
+        "viem": "^2.57.4"
+    },
+    "allowScripts": {
+        "esbuild@0.28.2": true,
+        "@vscode/vsce-sign@2.1.0": true
+    }
+}
